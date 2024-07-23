@@ -1,0 +1,25 @@
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  color: #b3b3b3;
+  font-size: 0.875rem;
+}
+
+.input {
+  padding: 0.5rem 0.725rem;
+  border: 1px solid #b3b3b3;
+  border-radius: 4px;
+}
+
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 1px solid #7e7e7e;
+  background: white;
+  box-shadow: 0 0 3px 1px #7e7e7e;
+  transition: 0.3s;
+}
