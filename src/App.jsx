@@ -6,22 +6,24 @@ import Input from './Components/Input';
 import Item from './Components/Item';
 
 function App() {
-  const [itens, setItens] = React.useState([]);
-  const [qtdes, setQtdes] = React.useState([]);
+  // const [itens, setItens] = React.useState([]);
+  // const [qtdes, setQtdes] = React.useState([]);
 
-  // const teste = {
-  //   frutas: ['banana', 'maça'],
-  // };
-
-  // console.log(teste.frutas.map((fruta) => <div>{fruta}</div>));
+  const [compras, setCompras] = React.useState([]);
 
   function handleAdd(event) {
     event.preventDefault();
     const item = event.target[0].value;
     const qtde = event.target[1].value;
 
-    if (item.length > 0) setItens([...itens, item]);
-    if (qtde.length > 0) setQtdes([...qtdes, qtde]);
+    const dados = { item, qtde };
+
+    if (item.length > 0) setCompras([...compras, dados]);
+
+    event.target[0].value = '';
+    event.target[1].value = '';
+
+    event.target[0].select();
   }
 
   return (
@@ -37,17 +39,18 @@ function App() {
           <Input label="Quantidade" />
           <button>+</button>
         </form>
-        <section>
+        <section className="listContainer">
           <ul className="shopList">
-            {itens.length > 0 &&
-              itens.map((item, index) => (
+            {compras.length > 0 &&
+              compras.map((item, index) => (
                 <Item
-                  item={item}
+                  compras={compras}
+                  item={item.item}
+                  qtde={item.qtde}
                   key={index}
-                  itens={itens}
-                  qtdes={qtdes}
-                  setItens={setItens}
-                  setQtdes={setQtdes}
+                  setCompras={setCompras}
+                  // setItens={setItens}
+                  // setQtdes={setQtdes}
                 />
               ))}
           </ul>

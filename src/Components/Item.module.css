@@ -7,7 +7,7 @@
 
 .check {
   width: 24px;
-  height: 20px;
+  height: 18px;
   border: 2px solid #b3b3b3;
   border-radius: 50%;
   cursor: pointer;
@@ -24,8 +24,8 @@
   content: '';
   width: 115%;
   height: 1px;
-  background-color: #7a7a7a;
-  margin-top: 10px;
+  background-color: #b0b0b0;
+  margin-top: 8px;
 }
 
 .item p {
@@ -35,7 +35,7 @@
 
 .item span {
   font-size: 0.875rem;
-  color: #7a7a7a;
+  color: #b0b0b0;
 }
 
 .check:hover,
@@ -51,6 +51,7 @@
 
 .trash {
   width: 20px;
+  padding: 10px;
   cursor: pointer;
 }
 

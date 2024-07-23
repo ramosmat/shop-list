@@ -2,12 +2,18 @@ import React from 'react';
 import styles from './Item.module.css';
 import Trash from '../Assets/trash-icon.svg?react';
 
-const Item = ({ item, itens, qtdes, setItens, setQtdes }) => {
+const Item = ({ item, qtde, compras, setCompras }) => {
   function handleClick(event) {
-    const compraIndex = itens.indexOf(event.target.id);
+    // const compraIndex = compras.indexOf(event.target.id);
 
-    itens.splice(compraIndex, 1);
-    setItens([...itens]);
+    const compraIndex = compras.findIndex(
+      (compra) => compra.item === event.target.id,
+    );
+
+    if (compraIndex >= 0) {
+      compras.splice(compraIndex, 1);
+      setCompras([...compras]);
+    }
   }
 
   return (
@@ -15,7 +21,7 @@ const Item = ({ item, itens, qtdes, setItens, setQtdes }) => {
       <div className={styles.check}></div>
       <div className={styles.item}>
         <p>{item}</p>
-        <span>teste</span>
+        <span>{qtde}</span>
       </div>
       <Trash className={styles.trash} onClick={handleClick} id={item} />
     </li>
