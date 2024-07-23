@@ -1,0 +1,60 @@
+.listItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.check {
+  width: 24px;
+  height: 20px;
+  border: 2px solid #b3b3b3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.item::after {
+  content: '';
+  width: 115%;
+  height: 1px;
+  background-color: #7a7a7a;
+  margin-top: 10px;
+}
+
+.item p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.item span {
+  font-size: 0.875rem;
+  color: #7a7a7a;
+}
+
+.check:hover,
+.item:hover .check {
+  box-shadow: inset 0 0 3px 5px white, inset 0 0 3px 36px #b3b3b3;
+  transition: 0.3s;
+}
+
+.check:active {
+  /* border: 2px solid springgreen; */
+  box-shadow: inset 0 0 3px 5px white, inset 0 0 3px 36px springgreen;
+}
+
+.trash {
+  width: 20px;
+  cursor: pointer;
+}
+
+.trash:hover {
+  scale: 1.2;
+  transition: 0.3s;
+}
