@@ -3,7 +3,7 @@ import styles from './Item.module.css';
 import Trash from '../Assets/trash-icon.svg?react';
 
 const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
-  function handleClick(event) {
+  function handleTrash(event) {
     const compraIndex = compras.findIndex(
       (compra) => compra.item === event.target.id,
     );
@@ -14,8 +14,21 @@ const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
     }
   }
 
-  function handleChecked(event) {
-    setComprados((prev) => [...prev, item]);
+  function handleChecked({ target }) {
+    const item = [...target.nextElementSibling.children][0].innerText;
+    const qtde = [...target.nextElementSibling.children][1].innerText;
+
+    setComprados((comprados) => [...comprados, { item, qtde }]);
+
+    // FAZER ESSA PARTE FUNCIONAR
+    const compraIndex = compras.findIndex(
+      (compra) => compra.item === target.id,
+    );
+
+    if (compraIndex >= 0) {
+      compras.splice(compraIndex, 1);
+      setCompras([...compras]);
+    }
   }
 
   return (
@@ -25,7 +38,7 @@ const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
         <p>{item}</p>
         <span>{qtde}</span>
       </div>
-      <Trash className={styles.trash} onClick={handleClick} id={item} />
+      <Trash className={styles.trash} onClick={handleTrash} id={item} />
     </li>
   );
 };
