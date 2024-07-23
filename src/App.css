@@ -25,7 +25,7 @@ ul {
   justify-content: center;
   align-items: center;
   background: #e8ecf1;
-  height: 100vh;
+  min-height: 100vh;
   padding: auto 2rem;
 }
 
@@ -48,7 +48,7 @@ ul {
   gap: 1rem;
 }
 
-.title h2 {
+h2 {
   color: #444444;
 }
 
@@ -96,12 +96,30 @@ ul {
   scale: 0.9;
 }
 
-.listContainer {
-  min-height: 150px;
-}
-
 .shopList {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.listContainer,
+.listComprados {
+  min-height: 150px;
+}
+
+.listComprados h2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.listComprados h2::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 1px;
+  border-radius: 4px;
+  background: #b3b3b3;
+  margin-bottom: 1rem;
 }

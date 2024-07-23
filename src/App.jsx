@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import Shop from './Assets/shop-icon.svg?react';
-import Done from './Assets/done-icon.svg?react';
 import Input from './Components/Input';
 import Item from './Components/Item';
+import Comprados from './Components/Comprados';
 
 function App() {
-  // const [itens, setItens] = React.useState([]);
-  // const [qtdes, setQtdes] = React.useState([]);
-
   const [compras, setCompras] = React.useState([]);
+  const [comprados, setComprados] = React.useState([
+    { item: 'teste', qtde: 'alou' },
+  ]);
 
   function handleAdd(event) {
     event.preventDefault();
@@ -45,14 +45,32 @@ function App() {
               compras.map((item, index) => (
                 <Item
                   compras={compras}
+                  setCompras={setCompras}
                   item={item.item}
                   qtde={item.qtde}
                   key={index}
-                  setCompras={setCompras}
-                  // setItens={setItens}
-                  // setQtdes={setQtdes}
+                  setComprados={setComprados}
                 />
               ))}
+          </ul>
+        </section>
+        <section className="listComprados">
+          <ul className="shopList">
+            {comprados.length > 0 && (
+              <>
+                <h2>Itens já Comprados</h2>
+                {comprados.map((item, index) => (
+                  <Comprados
+                    item={item.item}
+                    qtde={item.qtde}
+                    key={index}
+                    comprados={comprados}
+                    setComprados={setComprados}
+                    setCompras={setCompras}
+                  />
+                ))}
+              </>
+            )}
           </ul>
         </section>
       </section>

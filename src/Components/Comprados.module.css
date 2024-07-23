@@ -5,24 +5,19 @@
   gap: 2rem;
 }
 
-.check {
-  width: 24px;
-  height: 18px;
-  border: 2px solid #b3b3b3;
-  border-radius: 50%;
-  cursor: pointer;
+.done {
+  width: 36px;
 }
 
 .item {
   width: 100%;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
 }
 
 .item::after {
   content: '';
-  width: 100%;
+  width: 115%;
   height: 1px;
   background-color: #b0b0b0;
   margin-top: 8px;
@@ -30,32 +25,35 @@
 
 .item p {
   font-weight: bold;
+  color: #b3b3b3;
   font-size: 1rem;
+  text-decoration: line-through;
 }
 
 .item span {
   font-size: 0.875rem;
   color: #b0b0b0;
+  text-decoration: line-through;
 }
 
-.check:hover,
-.item:hover .check {
-  box-shadow: inset 0 0 3px 5px white, inset 0 0 3px 36px #b3b3b3;
-  transition: 0.3s;
+.buttons {
+  display: flex;
+  align-items: center;
 }
 
-.check:active {
-  /* border: 2px solid springgreen; */
-  box-shadow: inset 0 0 3px 5px white, inset 0 0 3px 36px springgreen;
-}
-
-.trash {
+.trash,
+.redo {
   width: 20px;
   padding: 10px;
   cursor: pointer;
 }
 
-.trash:hover {
+.redo {
+  width: 30px;
+}
+
+.trash:hover,
+.redo:hover {
   scale: 1.3;
   transition: 0.3s;
 }
