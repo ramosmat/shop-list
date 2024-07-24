@@ -20,10 +20,7 @@ const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
 
     setComprados((comprados) => [...comprados, { item, qtde }]);
 
-    // FAZER ESSA PARTE FUNCIONAR
-    const compraIndex = compras.findIndex(
-      (compra) => compra.item === target.id,
-    );
+    const compraIndex = compras.findIndex((compra) => compra.item === item);
 
     if (compraIndex >= 0) {
       compras.splice(compraIndex, 1);
