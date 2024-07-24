@@ -8,10 +8,24 @@ const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
       (compra) => compra.item === event.target.id,
     );
 
+    // const elementIndex = event.target.parentNode.getAttribute('id');
+    // const elementSair =
+    //   document.getElementById('shopList').children[elementIndex];
+
+    // console.log(elementSair);
+    // elementSair.classList.add(styles.saiu);
+
     if (compraIndex >= 0) {
       compras.splice(compraIndex, 1);
       setCompras([...compras]);
     }
+
+    // setTimeout(() => {
+    //   if (compraIndex >= 0) {
+    //     compras.splice(compraIndex, 1);
+    //     setCompras([...compras]);
+    //   }
+    // }, 500);
   }
 
   function handleChecked({ target }) {
@@ -29,7 +43,7 @@ const Item = ({ item, qtde, compras, setCompras, setComprados }) => {
   }
 
   return (
-    <li className={styles.listItem}>
+    <li className={`${styles.listItem} ${styles.entrou}`}>
       <div onClick={handleChecked} className={styles.check}></div>
       <div className={styles.item}>
         <p>{item}</p>

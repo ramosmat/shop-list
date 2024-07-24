@@ -30,7 +30,7 @@ const Item = ({ item, qtde, comprados, setComprados, setCompras }) => {
   }
 
   return (
-    <li className={styles.listItem}>
+    <li className={`${styles.listItem} ${styles.entrou}`}>
       <Done className={styles.done} />
       <div className={styles.item}>
         <p>{item}</p>

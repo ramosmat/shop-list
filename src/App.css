@@ -104,7 +104,7 @@ h2 {
 
 .listContainer,
 .listComprados {
-  min-height: 150px;
+  min-height: 100px;
 }
 
 .listComprados h2 {

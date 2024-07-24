@@ -7,9 +7,7 @@ import Comprados from './Components/Comprados';
 
 function App() {
   const [compras, setCompras] = React.useState([]);
-  const [comprados, setComprados] = React.useState([
-    { item: 'teste', qtde: 'alou' },
-  ]);
+  const [comprados, setComprados] = React.useState([]);
 
   function handleAdd(event) {
     event.preventDefault();
@@ -40,10 +38,11 @@ function App() {
           <button>+</button>
         </form>
         <section className="listContainer">
-          <ul className="shopList">
+          <ul id="shopList" className="shopList">
             {compras.length > 0 &&
               compras.map((item, index) => (
                 <Item
+                  id={index}
                   compras={compras}
                   setCompras={setCompras}
                   item={item.item}
