@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: #e8ecf1;
 }
 
 h1,
@@ -24,7 +25,6 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #e8ecf1;
   min-height: 100vh;
   padding: auto 2rem;
 }
@@ -34,11 +34,15 @@ ul {
   flex-direction: column;
   gap: 2rem;
   background-color: white;
-  margin: auto;
   padding: 2rem 3rem;
   border-radius: 1.5rem;
-  max-width: 30rem;
   min-height: 400px;
+}
+
+@media (width <=600px) {
+  .mainContainer {
+    padding: 2rem 1.5rem;
+  }
 }
 
 .title {
@@ -96,6 +100,21 @@ h2 {
   scale: 0.9;
 }
 
+@media (width <= 600px) {
+  .form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+  .form section:nth-child(2) {
+    grid-column: 1;
+  }
+  .form button {
+    grid-area: 2/2;
+    /* grid-row: span 2/1; */
+    place-self: end center;
+  }
+}
+
 .shopList {
   display: flex;
   flex-direction: column;
@@ -105,6 +124,13 @@ h2 {
 .listContainer,
 .listComprados {
   min-height: 100px;
+}
+
+@media (width <= 600px) {
+  .listContainer,
+  .listComprados {
+    min-height: 50px;
+  }
 }
 
 .listComprados h2 {

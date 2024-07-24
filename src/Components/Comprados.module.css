@@ -35,6 +35,12 @@
   width: 36px;
 }
 
+@media (width <= 600px) {
+  .done {
+    width: 30px;
+  }
+}
+
 .item {
   width: 100%;
   display: flex;
@@ -62,6 +68,15 @@
   text-decoration: line-through;
 }
 
+@media (width <= 600px) {
+  .item p {
+    font-size: 0.875rem;
+  }
+  .item span {
+    font-size: 0.75rem;
+  }
+}
+
 .listItem:last-child .item::after {
   display: none;
 }
@@ -71,8 +86,8 @@
   align-items: center;
 }
 
-.trash,
-.redo {
+.redo,
+.trash {
   width: 20px;
   padding: 10px;
   cursor: pointer;
@@ -86,4 +101,13 @@
 .redo:hover {
   scale: 1.3;
   transition: 0.3s;
+}
+
+@media (width <= 600px) {
+  .redo {
+    width: 20px;
+  }
+  .trash {
+    width: 15px;
+  }
 }
