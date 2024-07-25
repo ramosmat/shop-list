@@ -13,13 +13,22 @@
   padding: 0.5rem 0.725rem;
   border: 1px solid #b3b3b3;
   border-radius: 4px;
+  color: #383838;
+  font-weight: bold;
 }
 
 .input:hover,
 .input:focus {
   outline: none;
-  border: 1px solid #7e7e7e;
+  border: 1px solid #e1a0ff;
   background-color: white;
-  box-shadow: 0 0 3px 1px #7e7e7e;
+  box-shadow: 0 0 3px 1px #e1a0ff;
   transition: 0.3s;
+}
+
+@media (width <= 600px) {
+  .label,
+  .input {
+    font-size: 0.875rem;
+  }
 }

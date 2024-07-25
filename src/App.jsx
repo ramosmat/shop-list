@@ -28,7 +28,7 @@ function App() {
     <div className="container">
       <section className="mainContainer">
         <div className="title">
-          <Shop />
+          <Shop className="shopSvg" />
           <h2>Lista de Compras</h2>
           <p>Facilite sua ida ao supermercado!</p>
         </div>
