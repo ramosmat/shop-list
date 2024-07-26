@@ -4,20 +4,14 @@ import Done from '../Assets/done-icon.svg?react';
 import Redo from '../Assets/redo-icon.svg?react';
 import Trash from '../Assets/trash-icon.svg?react';
 
-const Item = ({ item, qtde, comprados, setComprados, setCompras }) => {
-  function handleRedo(event) {
-    const compraIndex = comprados.findIndex(
-      (compra) => compra.item === event.target.id,
-    );
-
-    if (compraIndex >= 0) {
-      comprados.splice(compraIndex, 1);
-      setComprados([...comprados]);
-
-      setCompras((prev) => [...prev, { item, qtde }]);
-    }
-  }
-
+const Comprados = ({
+  item,
+  qtde,
+  comprados,
+  setComprados,
+  compras,
+  setCompras,
+}) => {
   function handleTrash(event) {
     const compraIndex = comprados.findIndex(
       (compra) => compra.item === event.target.id,
@@ -26,8 +20,29 @@ const Item = ({ item, qtde, comprados, setComprados, setCompras }) => {
     if (compraIndex >= 0) {
       comprados.splice(compraIndex, 1);
       setComprados([...comprados]);
+      window.localStorage.setItem('comprados', JSON.stringify(comprados));
     }
   }
+
+  function handleRedo(event) {
+    const compraIndex = comprados.findIndex(
+      (compra) => compra.item === event.target.id,
+    );
+
+    if (compraIndex >= 0) {
+      comprados.splice(compraIndex, 1);
+      setComprados([...comprados]);
+      setCompras([...compras, { item, qtde }]);
+    }
+  }
+
+  React.useEffect(() => {
+    window.localStorage.setItem('comprados', JSON.stringify(comprados));
+  }, [comprados]);
+
+  React.useEffect(() => {
+    window.localStorage.setItem('compras', JSON.stringify(compras));
+  }, [compras]);
 
   return (
     <li className={`${styles.listItem} ${styles.entrou}`}>
@@ -44,4 +59,4 @@ const Item = ({ item, qtde, comprados, setComprados, setCompras }) => {
   );
 };
 
-export default Item;
+export default Comprados;

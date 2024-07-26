@@ -16,13 +16,31 @@ function App() {
 
     const dados = { item, qtde };
 
-    if (item.length > 0) setCompras([...compras, dados]);
+    if (item.length > 0) {
+      setCompras([...compras, dados]);
+      window.localStorage.setItem(
+        'compras',
+        JSON.stringify([...compras, dados]),
+      );
+    }
 
     event.target[0].value = '';
     event.target[1].value = '';
 
     event.target[0].select();
   }
+
+  React.useEffect(() => {
+    const compras = window.localStorage.getItem('compras');
+    const comprados = window.localStorage.getItem('comprados');
+    if (compras) {
+      setCompras(JSON.parse(compras));
+    }
+
+    if (comprados) {
+      setComprados(JSON.parse(comprados));
+    }
+  }, []);
 
   return (
     <div className="container">
@@ -38,16 +56,16 @@ function App() {
           <button>+</button>
         </form>
         <section className="listContainer">
-          <ul id="shopList" className="shopList">
+          <ul className="shopList">
             {compras.length > 0 &&
               compras.map((item, index) => (
                 <Item
-                  id={index}
                   compras={compras}
                   setCompras={setCompras}
                   item={item.item}
                   qtde={item.qtde}
                   key={index}
+                  comprados={comprados}
                   setComprados={setComprados}
                 />
               ))}
@@ -65,6 +83,7 @@ function App() {
                     key={index}
                     comprados={comprados}
                     setComprados={setComprados}
+                    compras={compras}
                     setCompras={setCompras}
                   />
                 ))}
